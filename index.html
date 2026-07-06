@@ -754,8 +754,8 @@
         <label>Current Quarter</label>
         <select id="quarterSelect" onchange="updateQuarter(this.value)">
           <option value="Q1 2026">Q1 2026 (Jan–Mar)</option>
-          <option value="Q2 2026" selected>Q2 2026 (Apr–Jun)</option>
-          <option value="Q3 2026">Q3 2026 (Jul–Sep)</option>
+          <option value="Q2 2026">Q2 2026 (Apr–Jun)</option>
+          <option value="Q3 2026" selected>Q3 2026 (Jul–Sep)</option>
           <option value="Q4 2026">Q4 2026 (Oct–Dec)</option>
         </select>
       </div>
@@ -836,11 +836,12 @@ const DEFAULT_CARDS = [
     name: 'Discover it',
     base: 1,
     categories: [
-      { name: 'Restaurants (Q2 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['dining','restaurant','takeout','delivery','doordash','ubereats','grubhub','chipotle','mcdonalds','starbucks','chick-fil-a','panera','subway','pizza','cafe','fast food','diner'] },
-      { name: 'Home Improvement Stores (Q2 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['home depot','lowes','lowe\'s','home improvement','hardware','lumber','paint','flooring','appliance','home furnishing','nursery','garden supply','building supply'] },
+      { name: 'Gas Stations & EV Charging (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['gas','fuel','shell','bp','exxon','mobil','sunoco','chevron','speedway','wawa','kwiktrip','gas station','ev charging','chargepoint','electrify america','blink charging'] },
+      { name: 'Transportation incl. Flights (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['flight','airline','united','delta','american airlines','southwest','jetblue','spirit','frontier','alaska airlines','amtrak','metro north','lirr','nj transit','commuter rail','ferry','bus pass','transit','subway','metro'] },
+      { name: 'Drugstores (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['drugstore','pharmacy','cvs','walgreens','rite aid','duane reade'] },
     ],
     perks: [],
-    notes: 'Requires quarterly activation. Q2 activation not retroactive — activate first.',
+    notes: 'Requires quarterly activation — NOT retroactive, activate before spending. Flights must be booked directly with airline, not through OTAs like Expedia or Kayak. Gas stations affiliated with wholesale clubs may not qualify.',
     rotating: true
   },
   {
@@ -848,11 +849,13 @@ const DEFAULT_CARDS = [
     name: 'Chase Freedom',
     base: 1,
     categories: [
-      { name: 'Amazon.com (Q2 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['amazon','amazon.com','amazon fresh','amazon prime','whole foods'] },
-      { name: 'Chase Travel (Q2 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['chase travel','chasetravel.com','flight','airline','hotel','car rental','cruise','vacation','expedia','booking.com','hotels.com','united','delta','american airlines'] },
+      { name: 'Gas Stations & EV Charging (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['gas','fuel','shell','bp','exxon','mobil','sunoco','chevron','speedway','wawa','kwiktrip','gas station','ev charging','chargepoint','electrify america','blink charging'] },
+      { name: 'Public Transit (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['transit','subway','metro','bus','train','amtrak','metro north','lirr','nj transit','njt','septa','mbta','bart','mta','path train','bus pass','commuter rail','ferry'] },
+      { name: 'Select Live Entertainment (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['concert','live music','theater','theatre','ticketmaster','stubhub','axs','live nation','sporting event','broadway','show','venue','entertainment'] },
+      { name: 'United Way (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['united way'] },
     ],
     perks: ['Trip cancellation/interruption insurance: up to $1,500/person, $6,000/trip','Auto rental coverage (secondary, US)'],
-    notes: "Requires quarterly activation. Activate by June 14 for full Q2 credit. No 3% dining/drugstore (that's Freedom Flex only).",
+    notes: "Requires quarterly activation. Activate by Sept 14 for full Q3 credit. No 3% dining/drugstore (that's Freedom Flex only).",
     rotating: true
   },
   {
@@ -860,8 +863,10 @@ const DEFAULT_CARDS = [
     name: 'Chase Freedom Flex',
     base: 1,
     categories: [
-      { name: 'Amazon.com (Q2 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['amazon','amazon.com','amazon fresh','amazon prime','whole foods'] },
-      { name: 'Chase Travel (Q2 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['chase travel','chasetravel.com','flight','airline','hotel','car rental','cruise','vacation','expedia','booking.com','hotels.com','united','delta','american airlines'] },
+      { name: 'Gas Stations & EV Charging (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['gas','fuel','shell','bp','exxon','mobil','sunoco','chevron','speedway','wawa','kwiktrip','gas station','ev charging','chargepoint','electrify america','blink charging'] },
+      { name: 'Public Transit (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['transit','subway','metro','bus','train','amtrak','metro north','lirr','nj transit','njt','septa','mbta','bart','mta','path train','bus pass','commuter rail','ferry'] },
+      { name: 'Select Live Entertainment (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['concert','live music','theater','theatre','ticketmaster','stubhub','axs','live nation','sporting event','broadway','show','venue','entertainment'] },
+      { name: 'United Way (Q3 2026)', rate: 5, cap: '$1,500/quarter combined', keywords: ['united way'] },
       { name: 'Dining / Restaurants', rate: 3, cap: null, keywords: ['dining','restaurant','takeout','delivery','doordash','ubereats','grubhub','chipotle','mcdonalds','starbucks','chick-fil-a','panera','subway','pizza','cafe','fast food','diner'] },
       { name: 'Drugstores', rate: 3, cap: null, keywords: ['drugstore','pharmacy','cvs','walgreens','rite aid','duane reade'] },
     ],
@@ -872,7 +877,7 @@ const DEFAULT_CARDS = [
       'Purchase protection: up to $500/item, 120 days',
       'Extended warranty: +1 year on eligible warranties ≤3 years'
     ],
-    notes: 'Requires quarterly activation for 5% rotating categories. Activate by June 14 for full Q2 credit.',
+    notes: 'Requires quarterly activation for 5% rotating categories. Activate by Sept 14 for full Q3 credit.',
     rotating: true,
     cellPhone: true
   },
@@ -1083,7 +1088,7 @@ const PROTECTION_TRIGGERS = {
 // ═══════════════════════════════════════════════
 
 let cards = JSON.parse(localStorage.getItem('cardcaddy_cards') || 'null') || DEFAULT_CARDS;
-let currentQuarter = localStorage.getItem('cardcaddy_quarter') || 'Q2 2026';
+let currentQuarter = localStorage.getItem('cardcaddy_quarter') || 'Q3 2026';
 let editingCardId = null;
 
 function saveData() {
